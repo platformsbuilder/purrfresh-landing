@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PurrFresh - Real Food Your Cat Will Actually Finish</title>
+  <meta name="description" content="Fresh, human-grade cat food delivered to your door. Built around your cat's age, breed, weight, and taste.">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;500;700&display=swap">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #7B2FBE;
+      --accent: #E91E8A;
+      --surface: #0B0E14;
+      --text: #E8E6F0;
+      --text-muted: #9B97A8;
+      --border: #1A1F2E;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--surface);
+      color: var(--text);
+    }
+    h1, h2, h3 {
+      font-family: 'Orbitron', sans-serif;
+    }
+    .cta-primary {
+      background: linear-gradient(135deg, #7B2FBE, #E91E8A);
+    }
+    .cta-primary:hover {
+      box-shadow: 0 0 24px rgba(233,30,138,0.4);
+    }
+    .glow-primary {
+      box-shadow: 0 0 20px rgba(123, 47, 190, 0.3);
+    }
+    .glow-accent {
+      box-shadow: 0 0 20px rgba(233, 30, 138, 0.3);
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary { list-style: none; }
+    details summary::after {
+      content: '+';
+      font-size: 1.5rem;
+      color: #00D2FF;
+      transition: transform 0.2s;
+    }
+    details[open] summary::after {
+      content: '-';
+    }
+    .stat-number {
+      font-family: 'Orbitron', sans-serif;
+      color: #00D2FF;
+    }
+    a:focus, button:focus, summary:focus, input:focus {
+      outline: 3px solid #00D2FF;
+      outline-offset: 2px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip to content -->
+  <a href="#main" class="sr-only focus:not-sr-only absolute top-0 left-0 bg-[#00D2FF] text-[#0B0E14] px-4 py-2 z-[200] font-semibold">Skip to content</a>
+
+  <!-- BLOCK 1: NAVBAR -->
+  <nav class="fixed top-0 left-0 right-0 z-[100] h-[72px] border-b border-[#1A1F2E]" style="background: rgba(11,14,20,0.85); backdrop-filter: blur(16px);">
+    <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+      <a href="#" class="text-2xl font-black tracking-wider" style="font-family: 'Orbitron', sans-serif; color: #E8E6F0;">PurrFresh</a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#ingredients" class="text-[15px] font-medium tracking-wide text-[#9B97A8] hover:text-[#00D2FF] transition-colors">Ingredients</a>
+        <a href="#how-it-works" class="text-[15px] font-medium tracking-wide text-[#9B97A8] hover:text-[#00D2FF] transition-colors">How It Works</a>
+        <a href="#pricing" class="text-[15px] font-medium tracking-wide text-[#9B97A8] hover:text-[#00D2FF] transition-colors">Pricing</a>
+        <a href="#faq" class="text-[15px] font-medium tracking-wide text-[#9B97A8] hover:text-[#00D2FF] transition-colors">FAQ</a>
+        <a href="#pricing" class="cta-primary text-white rounded-full px-8 py-3 text-sm font-bold uppercase tracking-widest transition-all duration-300 hover:scale-105 hover:shadow-xl">Build My Cat's Plan</a>
+      </div>
+      <!-- Mobile hamburger -->
+      <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Open menu">
+        <span class="block w-6 h-0.5 bg-[#E8E6F0] transition-all" id="bar1"></span>
+        <span class="block w-6 h-0.5 bg-[#E8E6F0] transition-all" id="bar2"></span>
+        <span class="block w-6 h-0.5 bg-[#E8E6F0] transition-all" id="bar3"></span>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-[#1A1F2E] px-6 py-6 flex flex-col gap-4" style="background: rgba(11,14,20,0.97);">
+      <a href="#ingredients" class="text-base font-medium text-[#9B97A8] hover:text-[#00D2FF]" onclick="closeMobileMenu()">Ingredients</a>
+      <a href="#how-it-works" class="text-base font-medium text-[#9B97A8] hover:text-[#00D2FF]" onclick="closeMobileMenu()">How It Works</a>
+      <a href="#pricing" class="text-base font-medium text-[#9B97A8] hover:text-[#00D2FF]" onclick="closeMobileMenu()">Pricing</a>
+      <a href="#faq" class="text-base font-medium text-[#9B97A8] hover:text-[#00D2FF]" onclick="closeMobileMenu()">FAQ</a>
+      <a href="#pricing" class="cta-primary text-white text-center rounded-full px-8 py-4 text-base font-bold uppercase tracking-widest" onclick="closeMobileMenu()">Build My Cat's Plan</a>
+    </div>
+  </nav>
+
+  <main id="main">
+    <!-- BLOCK 2: HERO -->
+    <header class="pt-[72px]" data-aos="fade-in">
+      <div class="relative overflow-hidden" style="background: radial-gradient(ellipse at 30% 20%, rgba(123,47,190,0.35) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(233,30,138,0.2) 0%, transparent 50%), #0B0E14;">
+        <div class="max-w-7xl mx-auto px-6 py-20 md:py-32 flex flex-col md:flex-row items-center gap-12">
+          <div class="md:w-[60%] space-y-6">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-black leading-[1.1] tracking-wide text-[#E8E6F0]">Real Food Your Cat Will Actually Finish</h1>
+            <p class="text-lg md:text-xl leading-relaxed text-[#9B97A8] max-w-xl">Fresh, human-grade meals delivered to your door every two weeks. Each recipe is built around your cat's age, breed, weight, and taste - because your cat deserves better than brown kibble from a bag.</p>
+            <div class="flex flex-col sm:flex-row gap-4 items-start">
+              <a href="#pricing" class="cta-primary text-white rounded-full px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl inline-block tracking-wide">Build My Cat's Meal Plan &rarr;</a>
+            </div>
+            <p class="text-sm text-[#9B97A8]">30-day money-back guarantee. Cancel or pause anytime. Free shipping.</p>
+          </div>
+          <div class="md:w-[40%]">
+            <img src="https://images.pexels.com/photos/14934911/pexels-photo-14934911.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Bright neon noodle sign illuminating a restaurant in Las Vegas, capturing the lively nightlife." class="w-full rounded-2xl object-cover shadow-2xl" style="aspect-ratio: 4/3;" loading="eager">
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- BLOCK 3: INGREDIENTS / FEATURES -->
+    <section id="ingredients" class="py-20 md:py-32" style="background: #10131A;">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-3xl md:text-4xl font-bold text-[#E8E6F0] mb-4">What Goes In the Bowl Matters</h2>
+          <p class="text-lg text-[#9B97A8] max-w-2xl mx-auto">Every PurrFresh recipe starts with whole-food ingredients you can recognize, prepared in USDA-certified kitchens.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Feature Card 1 -->
+          <div class="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-6 relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+            <img src="https://images.pexels.com/photos/31406831/pexels-photo-31406831.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Close-up of marbled Wagyu beef on a rustic dark wooden table, showcasing rich texture and color contrast." class="w-full h-48 object-cover rounded-xl mb-6" loading="lazy">
+            <span class="material-symbols-outlined text-4xl text-[#00D2FF] mb-4 block">lunch_dining</span>
+            <h3 class="text-xl font-bold text-[#E8E6F0] mb-3">Human-Grade Protein First</h3>
+            <p class="text-[#9B97A8] leading-relaxed">USDA-certified chicken, turkey, or wild-caught salmon listed as the first ingredient. No meat meal, no by-products, no mystery protein.</p>
+          </div>
+          <!-- Feature Card 2 -->
+          <div class="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-6 relative overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+            <img src="https://images.pexels.com/photos/13322684/pexels-photo-13322684.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Close-up of colorful sushi rolls with vibrant ingredients and sesame seeds, perfect for food photography." class="w-full h-48 object-cover rounded-xl mb-6" loading="lazy">
+            <span class="material-symbols-outlined text-4xl text-[#00D2FF] mb-4 block">block</span>
+            <h3 class="text-xl font-bold text-[#E8E6F0] mb-3">Zero Fillers, Zero Grains</h3>
+            <p class="text-[#9B97A8] leading-relaxed">No corn, wheat, soy, or artificial preservatives. Just whole vegetables, bone broth, and essential vitamins your cat needs.</p>
+          </div>
+          <!-- Feature Card 3 -->
+          <div class="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-6 relative overflow-hidden group" data-aos="fade-up" data-aos-delay="300">
+            <img src="https://images.pexels.com/photos/36353557/pexels-photo-36353557.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="A close-up view of colorful crumpled metallic foil with reflective and sparkling textures." class="w-full h-48 object-cover rounded-xl mb-6" loading="lazy">
+            <span class="material-symbols-outlined text-4xl text-[#00D2FF] mb-4 block">stethoscope</span>
+            <h3 class="text-xl font-bold text-[#E8E6F0] mb-3">Vet-Formulated, AAFCO-Compliant</h3>
+            <p class="text-[#9B97A8] leading-relaxed">Every recipe is developed by board-certified feline nutritionists and meets AAFCO standards for complete and balanced nutrition.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCK 4: SOCIAL PROOF -->
+    <section id="social-proof" class="py-20 md:py-32" style="background: #0B0E14;">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-3xl md:text-4xl font-bold text-[#E8E6F0] mb-4">637 Picky Eaters Converted</h2>
+          <p class="text-lg text-[#9B97A8]">Real cats. Real results. Real owners who stopped dreading mealtime.</p>
+        </div>
+        <!-- Stats Bar -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-center p-6 rounded-2xl border border-[#1A1F2E]" style="background: #12161F;">
+            <p class="stat-number text-4xl font-bold mb-2">12,400+</p>
+            <p class="text-sm font-medium text-[#9B97A8] uppercase tracking-wide">cats fed monthly</p>
+          </div>
+          <div class="text-center p-6 rounded-2xl border border-[#1A1F2E]" style="background: #12161F;">
+            <p class="stat-number text-4xl font-bold mb-2">4.8/5</p>
+            <p class="text-sm font-medium text-[#9B97A8] uppercase tracking-wide">average rating</p>
+          </div>
+          <div class="text-center p-6 rounded-2xl border border-[#1A1F2E]" style="background: #12161F;">
+            <p class="stat-number text-4xl font-bold mb-2">94%</p>
+            <p class="text-sm font-medium text-[#9B97A8] uppercase tracking-wide">reorder within 60 days</p>
+          </div>
+        </div>
+        <!-- Testimonials -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="rounded-2xl p-8 border border-[#1A1F2E] relative" style="background: #12161F; border-left: 4px solid #00D2FF;" data-aos="fade-up" data-aos-delay="100">
+            <span class="text-6xl opacity-20 absolute top-2 left-4 leading-none" style="font-family: serif; color: #00D2FF;">&ldquo;</span>
+            <div class="flex items-center gap-4 mb-4 mt-6">
+              <img src="https://images.pexels.com/photos/26834696/pexels-photo-26834696.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="A man wearing glasses holds a kitten up, creating a warm and intimate moment indoors." class="w-14 h-14 rounded-full object-cover" loading="lazy">
+              <div>
+                <p class="font-bold text-[#E8E6F0]">Priya Ramanathan</p>
+                <p class="text-sm text-[#9B97A8]">Astoria, Queens NY</p>
+              </div>
+            </div>
+            <p class="text-[#9B97A8] leading-relaxed mb-3">"Luna refused every wet food brand we tried for three years. She licked her PurrFresh bowl clean on day one. I actually teared up watching her eat with enthusiasm again."</p>
+            <p class="text-xs text-[#9B97A8] italic">Cat parent to Luna, 6-year-old Persian</p>
+          </div>
+          <div class="rounded-2xl p-8 border border-[#1A1F2E] relative" style="background: #12161F; border-left: 4px solid #00D2FF;" data-aos="fade-up" data-aos-delay="200">
+            <span class="text-6xl opacity-20 absolute top-2 left-4 leading-none" style="font-family: serif; color: #00D2FF;">&ldquo;</span>
+            <div class="flex items-center gap-4 mb-4 mt-6">
+              <img src="https://images.pexels.com/photos/6284972/pexels-photo-6284972.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Smiling couple sharing a light moment while cooking together in the kitchen." class="w-14 h-14 rounded-full object-cover" loading="lazy">
+              <div>
+                <p class="font-bold text-[#E8E6F0]">Derek Holliday</p>
+                <p class="text-sm text-[#9B97A8]">Logan Square, Chicago IL</p>
+              </div>
+            </div>
+            <p class="text-[#9B97A8] leading-relaxed mb-3">"I was spending $80 a month at the pet store on four different foods because my two cats are picky in opposite directions. PurrFresh built separate plans for each of them, and the subscription actually costs less than what I was spending before."</p>
+            <p class="text-xs text-[#9B97A8] italic">Cat parent to Mochi and Biscuit, domestic shorthairs</p>
+          </div>
+          <div class="rounded-2xl p-8 border border-[#1A1F2E] relative" style="background: #12161F; border-left: 4px solid #00D2FF;" data-aos="fade-up" data-aos-delay="300">
+            <span class="text-6xl opacity-20 absolute top-2 left-4 leading-none" style="font-family: serif; color: #00D2FF;">&ldquo;</span>
+            <div class="flex items-center gap-4 mb-4 mt-6">
+              <img src="https://images.pexels.com/photos/8261821/pexels-photo-8261821.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="A man sits at a dimly lit bar, creating a warm and relaxing nightlife ambiance." class="w-14 h-14 rounded-full object-cover" loading="lazy">
+              <div>
+                <p class="font-bold text-[#E8E6F0]">Carla Medeiros</p>
+                <p class="text-sm text-[#9B97A8]">Somerville, MA</p>
+              </div>
+            </div>
+            <p class="text-[#9B97A8] leading-relaxed mb-3">"The salmon and pumpkin recipe cleared up my senior cat's digestion issues within two weeks. Our vet noticed the improvement at his last checkup and asked what we changed."</p>
+            <p class="text-xs text-[#9B97A8] italic">Cat parent to Oliver, 12-year-old Maine Coon</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCK 5: HOW IT WORKS -->
+    <section id="how-it-works" class="py-20 md:py-32" style="background: #10131A;">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-3xl md:text-4xl font-bold text-[#E8E6F0] mb-4">Three Steps to a Happier Cat</h2>
+          <p class="text-lg text-[#9B97A8]">No store runs. No guesswork. Just fresh food, portioned and delivered.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div class="text-center space-y-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto text-2xl font-bold" style="background: linear-gradient(135deg, #7B2FBE, #E91E8A); font-family: 'Orbitron', sans-serif; color: #fff;">1</div>
+            <span class="material-symbols-outlined text-4xl text-[#00D2FF]">quiz</span>
+            <h3 class="text-xl font-bold text-[#E8E6F0]">Tell Us About Your Cat</h3>
+            <p class="text-[#9B97A8] leading-relaxed">Take a 2-minute quiz covering your cat's breed, age, weight, activity level, and any dietary sensitivities. We handle the nutrition math.</p>
+          </div>
+          <div class="text-center space-y-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto text-2xl font-bold" style="background: linear-gradient(135deg, #7B2FBE, #E91E8A); font-family: 'Orbitron', sans-serif; color: #fff;">2</div>
+            <span class="material-symbols-outlined text-4xl text-[#00D2FF]">assignment</span>
+            <h3 class="text-xl font-bold text-[#E8E6F0]">We Build the Plan</h3>
+            <p class="text-[#9B97A8] leading-relaxed">Our feline nutritionists match your cat with the right recipes, portion sizes, and delivery cadence. You approve the plan before anything ships.</p>
+          </div>
+          <div class="text-center space-y-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto text-2xl font-bold" style="background: linear-gradient(135deg, #7B2FBE, #E91E8A); font-family: 'Orbitron', sans-serif; color: #fff;">3</div>
+            <span class="material-symbols-outlined text-4xl text-[#00D2FF]">local_shipping</span>
+            <h3 class="text-xl font-bold text-[#E8E6F0]">Fresh Meals Arrive</h3>
+            <p class="text-[#9B97A8] leading-relaxed">Pre-portioned packs arrive at your door every 2 or 4 weeks in insulated, recyclable packaging. Thaw, serve, done.</p>
+          </div>
+        </div>
+        <div class="text-center" data-aos="fade-up">
+          <a href="#pricing" class="cta-primary text-white rounded-full px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl inline-block">Start the Quiz - It Takes 2 Minutes &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCK 6: PRICING -->
+    <section id="pricing" class="py-20 md:py-32" style="background: #0B0E14;">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-3xl md:text-4xl font-bold text-[#E8E6F0] mb-4">Fresh Meals, Starting at $2.50/Day</h2>
+          <p class="text-lg text-[#9B97A8]">Less than your morning coffee. More than your cat has ever had.</p>
+        </div>
+        <!-- Toggle -->
+        <div class="flex justify-center mb-12" data-aos="fade-up">
+          <div class="inline-flex rounded-full border border-[#1A1F2E] p-1" style="background: #12161F;">
+            <button id="toggle-onetime" class="px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 text-[#9B97A8]" onclick="switchPricing('onetime')">One-Time</button>
+            <button id="toggle-subscribe" class="px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 text-[#0B0E14]" style="background: #00D2FF;" onclick="switchPricing('subscribe')">Subscribe &amp; Save 20%</button>
+          </div>
+        </div>
+        <!-- Pricing Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <!-- One-Time Card -->
+          <div class="rounded-2xl p-8 border border-[#1A1F2E]" style="background: #12161F;" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="text-2xl font-bold text-[#E8E6F0] mb-2">Try-It Box</h3>
+            <p class="stat-number text-5xl font-bold mb-1">$89</p>
+            <p class="text-sm text-[#9B97A8] mb-6">2-week supply, one-time purchase</p>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center gap-3 text-[#9B97A8]"><span class="material-symbols-outlined text-[#00D2FF] text-xl">check_circle</span> 14 pre-portioned meals</li>
+              <li class="flex items-center gap-3 text-[#9B97A8]"><span class="material-symbols-outlined text-[#00D2FF] text-xl">check_circle</span> Free shipping</li>
+              <li class="flex items-center gap-3 text-[#9B97A8]"><span class="material-symbols-outlined text-[#00D2FF] text-xl">check_circle</span> No subscription required</li>
+              <li class="flex items-center gap-3 text-[#9B97A8]"><span class="material-symbols-outlined text-[#00D2FF] text-xl">check_circle</span> Choose from 4 protein options</li>
+            </ul>
+            <button class="w-full py-4 rounded-full border-2 border-[#00D2FF] text-[#00D2FF] font-bold text-base uppercase tracking-wider hover:bg-[#00D2FF] hover:text-[#0B0E14] transition-all duration-300 hover:scale-105">Order the Try-It Box</button>
+          </div>
+          <!-- Subscription Card (Highlighted) -->
+          <div class="rounded-2xl p-8 border-2 border-[#E91E8A] relative glow-accent" style="background: #12161F;" data-aos="fade-up" data-aos-delay="200">
+            <span class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-white" style="background: linear-gradient(135deg, #7B2FBE, #E91E8A);">Most Popular</span>
+            <h3 class="text-2xl font-bold text-[#E8E6F0] mb-2 mt-2">Monthly Plan</h3>
+            <p class="stat-number text-5xl font-bold mb-1">$69<span class="text-xl text-[#9B97A8]">/month</span></p>
+            <p class="text-sm text-[#9B97A8] mb-6">billed monthly - save $20 vs. one-time</p>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center gap-3 text-[#9B97A8]"><span class="material-symbols-outlined text-[#00D2FF] text-xl">check_circle</span> 28 pre-portioned meals</li>
+              <li class="flex items-center gap-3 text-[#9B97A8]"><span class="material-symbols-outlined text-[#00D2FF] text-xl">check_circle</span> Free shipping, always</li>
+              <li class="flex items-center gap-3 text-[#9B97A8]"><span class="material-symbols-outlined text-[#00D2FF] text-xl">check_circle</span> Cancel or pause anytime</li>
+              <li class="flex items-center gap-3 text-[#9B97A8]"><span class="material-symbols-outlined text-[#00D2FF] text-xl">check_circle</span> 30-day money-back guarantee</li>
+              <li class="flex items-center gap-3 text-[#9B97A8]"><span class="material-symbols-outlined text-[#00D2FF] text-xl">check_circle</span> Swap proteins every month</li>
+            </ul>
+            <button class="cta-primary w-full py-4 rounded-full text-white font-bold text-base uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:shadow-xl">Subscribe and Save 20% &rarr;</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCK 7 (part 1): FAQ -->
+    <section id="faq" class="py-20 md:py-32" style="background: #10131A;">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-3xl md:text-4xl font-bold text-[#E8E6F0]">Your Questions, Answered</h2>
+        </div>
+        <div class="space-y-0" data-aos="fade-up" data-aos-delay="100">
+          <details class="border-b border-[#1A1F2E]">
+            <summary class="flex justify-between items-center cursor-pointer py-5 text-lg font-medium text-[#E8E6F0]">What does "human-grade" actually mean?</summary>
+            <p class="pb-5 text-[#9B97A8] leading-relaxed">It means every ingredient in our recipes is sourced, handled, and processed to the same safety standards as food made for people. Our kitchen is USDA-certified for human food production - the same facility could legally produce meals for a restaurant.</p>
+          </details>
+          <details class="border-b border-[#1A1F2E]">
+            <summary class="flex justify-between items-center cursor-pointer py-5 text-lg font-medium text-[#E8E6F0]">Can I customize recipes for my cat's allergies or health conditions?</summary>
+            <p class="pb-5 text-[#9B97A8] leading-relaxed">Yes. During the quiz, you can flag specific proteins, grains, or ingredients to avoid. Our nutritionists build your plan around those restrictions. If your cat has a diagnosed condition (kidney disease, diabetes, IBD), we recommend sharing the plan with your vet.</p>
+          </details>
+          <details class="border-b border-[#1A1F2E]">
+            <summary class="flex justify-between items-center cursor-pointer py-5 text-lg font-medium text-[#E8E6F0]">How does shipping work?</summary>
+            <p class="pb-5 text-[#9B97A8] leading-relaxed">We ship in insulated, recyclable boxes with dry ice. Meals arrive fresh, not frozen. Delivery is free on all orders and subscriptions. Most orders arrive within 3-5 business days.</p>
+          </details>
+          <details class="border-b border-[#1A1F2E]">
+            <summary class="flex justify-between items-center cursor-pointer py-5 text-lg font-medium text-[#E8E6F0]">What if my cat doesn't like it?</summary>
+            <p class="pb-5 text-[#9B97A8] leading-relaxed">We offer a 30-day money-back guarantee on your first order. If your cat turns their nose up (it happens), contact us and we will refund you in full. No returns needed - donate the remaining food to a local shelter.</p>
+          </details>
+          <details class="border-b border-[#1A1F2E]">
+            <summary class="flex justify-between items-center cursor-pointer py-5 text-lg font-medium text-[#E8E6F0]">Is this food AAFCO-compliant?</summary>
+            <p class="pb-5 text-[#9B97A8] leading-relaxed">Every PurrFresh recipe meets AAFCO nutrient profiles for adult cats and kittens. We publish full nutritional analysis on each recipe page, including guaranteed analysis, caloric content, and ingredient sourcing.</p>
+          </details>
+          <details class="border-b border-[#1A1F2E]">
+            <summary class="flex justify-between items-center cursor-pointer py-5 text-lg font-medium text-[#E8E6F0]">Can I pause or cancel my subscription?</summary>
+            <p class="pb-5 text-[#9B97A8] leading-relaxed">Anytime, with one click in your account dashboard. No cancellation fees, no phone calls, no guilt trips. Pause for a month or cancel permanently - your choice.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-20 md:py-32 text-center" style="background: radial-gradient(ellipse at 50% 50%, rgba(123,47,190,0.25) 0%, transparent 60%), #0B0E14;" data-aos="fade-up">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#E8E6F0] mb-6">Your Cat Deserves Better Than Kibble</h2>
+        <p class="text-lg text-[#9B97A8] mb-8">Join 12,400+ cats eating fresh. Start with a personalized meal plan built just for your cat.</p>
+        <a href="#pricing" class="cta-primary text-white rounded-full px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl inline-block">Build My Cat's Meal Plan &rarr;</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- BLOCK 7 (part 2): FOOTER -->
+  <footer class="py-16 border-t border-[#1A1F2E]" style="background: #060810;">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        <div>
+          <h4 class="font-bold text-[#E8E6F0] mb-4 text-sm uppercase tracking-wider">About</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-[#9B97A8] hover:text-[#00D2FF] transition-colors text-sm">Our Story</a></li>
+            <li><a href="#ingredients" class="text-[#9B97A8] hover:text-[#00D2FF] transition-colors text-sm">Ingredients</a></li>
+            <li><a href="#" class="text-[#9B97A8] hover:text-[#00D2FF] transition-colors text-sm">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-[#E8E6F0] mb-4 text-sm uppercase tracking-wider">Support</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-[#9B97A8] hover:text-[#00D2FF] transition-colors text-sm">Help Center</a></li>
+            <li><a href="#" class="text-[#9B97A8] hover:text-[#00D2FF] transition-colors text-sm">Contact Us</a></li>
+            <li><a href="#" class="text-[#9B97A8] hover:text-[#00D2FF] transition-colors text-sm">Shipping Info</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-[#E8E6F0] mb-4 text-sm uppercase tracking-wider">Legal</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-[#9B97A8] hover:text-[#00D2FF] transition-colors text-sm">Privacy Policy</a></li>
+            <li><a href="#" class="text-[#9B97A8] hover:text-[#00D2FF] transition-colors text-sm">Terms of Service</a></li>
+            <li><a href="#" class="text-[#9B97A8] hover:text-[#00D2FF] transition-colors text-sm">Refund Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-[#E8E6F0] mb-4 text-sm uppercase tracking-wider">Social</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-[#9B97A8] hover:text-[#00D2FF] transition-colors text-sm">Instagram</a></li>
+            <li><a href="#" class="text-[#9B97A8] hover:text-[#00D2FF] transition-colors text-sm">TikTok</a></li>
+            <li><a href="#" class="text-[#9B97A8] hover:text-[#00D2FF] transition-colors text-sm">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Newsletter -->
+      <div class="max-w-md mx-auto mb-12 text-center">
+        <p class="text-[#E8E6F0] font-bold mb-4">Get $10 off your first box</p>
+        <form class="flex gap-2" onsubmit="event.preventDefault();">
+          <input type="email" placeholder="Your email address" class="flex-1 h-12 px-4 rounded-lg border border-[#1A1F2E] text-[#E8E6F0] text-base focus:border-[#00D2FF]" style="background: #12161F;">
+          <button type="submit" class="h-12 px-6 rounded-lg font-bold text-sm uppercase tracking-wider text-white transition-all duration-300 hover:scale-105" style="background: linear-gradient(135deg, #7B2FBE, #E91E8A);">Subscribe</button>
+        </form>
+      </div>
+      <div class="text-center text-sm text-[#9B97A8]">
+        <p>&copy; 2026 PurrFresh. All rights reserved.</p>
+        <p class="mt-2">hello@purrfresh.com</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    function closeMobileMenu() {
+      mobileMenu.classList.add('hidden');
+    }
+
+    // Pricing toggle
+    function switchPricing(mode) {
+      const oneTimeBtn = document.getElementById('toggle-onetime');
+      const subBtn = document.getElementById('toggle-subscribe');
+      if (mode === 'onetime') {
+        oneTimeBtn.style.background = '#00D2FF';
+        oneTimeBtn.style.color = '#0B0E14';
+        subBtn.style.background = 'transparent';
+        subBtn.style.color = '#9B97A8';
+      } else {
+        subBtn.style.background = '#00D2FF';
+        subBtn.style.color = '#0B0E14';
+        oneTimeBtn.style.background = 'transparent';
+        oneTimeBtn.style.color = '#9B97A8';
+      }
+    }
+
+    // Init AOS
+    AOS.init({ duration: 800, once: true });
+  </script>
+</body>
+</html>
